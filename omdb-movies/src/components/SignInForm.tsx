@@ -13,6 +13,7 @@ const SignInForm: React.FC = () => {
         e.preventDefault();
         if(validateUser(email, password)) {
             setError("");
+            localStorage.setItem("isLoggedIn", true);
             navigate("/browse");
         }
         else{
