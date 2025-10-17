@@ -1,10 +1,10 @@
 import './App.css'
-import TestComponent from "./components/TestComponent.tsx";
+import LandingPage from "./components/LandingPage.tsx";
 
 function App() {
 
   return (
-      <TestComponent/>
+      <LandingPage/>
   )
 }
 
