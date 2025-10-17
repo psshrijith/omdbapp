@@ -1,10 +1,17 @@
 import './App.css'
-import LandingPage from "./components/LandingPage.tsx";
+import LandingPage from "./components/LandingPage";
+import BrowsePage from "./components/BrowsePage";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
   return (
-      <LandingPage/>
+      <Router>
+          <Routes>
+            <Route path="/home" element={<LandingPage />} />
+            <Route path="/browse" element={<BrowsePage />} />
+          </Routes>
+      </Router>
   )
 }
 

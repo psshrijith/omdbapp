@@ -53,7 +53,7 @@ const LandingPage : React.FC<LandingPageProps> =  () => {
             }
 
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <SignInForm onSubmit={(values) => console.log(values)} />
+                <SignInForm />
             </Modal>
         </div>
     );

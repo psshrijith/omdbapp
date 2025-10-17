@@ -1,22 +1,33 @@
 import React, {useState} from "react";
+import {validateUser} from "../utils/validateUser";
+import {useNavigate} from 'react-router-dom';
 
-type SignInFormProps = {
-    onSubmit: (credentials: {email: string, password: string}) => void;
-}
-
-const SignInForm: React.FC<SignInFormProps> = ({onSubmit}: SignInFormProps) => {
+const SignInForm: React.FC = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const navigate=useNavigate();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        onSubmit({email, password})
+        if(validateUser(email, password)) {
+            setError("");
+            navigate("/browse");
+        }
+        else{
+            setError("Invalid Credentials")
+        }
     }
 
     return(
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 px-6">
             <p className="flex text-white text-5xl font-bold justify-self-start pb-4">Sign In</p>
+
+            {error && (
+                <p className="text-red-600">{error}</p>
+                )}
+
             <input
                 className="border-white border-2 text-white h-12 rounded-lg p-1"
                 type="text"
@@ -38,7 +49,6 @@ const SignInForm: React.FC<SignInFormProps> = ({onSubmit}: SignInFormProps) => {
             <button
                 className="bg-red-600 h-12 rounded-lg"
                 type="submit"
-                onClick={() => handleSubmit}
                 >
                 Sign In
             </button>
