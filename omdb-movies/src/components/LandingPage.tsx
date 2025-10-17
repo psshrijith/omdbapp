@@ -1,8 +1,16 @@
-import type { ReactElement } from "react";
+import React, { useState} from "react";
 import netflix_logo from "../assets/netflix_logo.jpg";
 import bg_image from "../assets/bg_image.jpg";
+import Modal from "./Modal";
+import SignInForm from "./SignInForm";
 
-const LandingPage = (): ReactElement => {
+type LandingPageProps = {
+
+}
+const LandingPage : React.FC<LandingPageProps> =  () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <div className="min-h-screen w-full bg-center bg-cover bg-no-repeat flex flex-col fixed inset-0 opacity-85"
             style={{ backgroundImage: `url(${bg_image})`}}>
@@ -10,11 +18,17 @@ const LandingPage = (): ReactElement => {
 
             <div className="flex justify-between items-center p-6">
                 <img src={netflix_logo} alt="netflix_logo" className="w-32" />
-                <p className="text-white text-lg font-semibold cursor-pointer hover:underline">
+                <button
+                    className="text-white text-lg font-semibold cursor-pointer bg-red-600 rounded-xl p-4"
+                    onClick={() => {
+                        setIsOpen(true)
+                    }}
+                >
                     Sign In
-                </p>
+                </button>
             </div>
 
+            {!isOpen ?
             <div className="flex flex-col justify-center items-center text-center px-6">
                 <p className="text-5xl md:text-7xl text-white font-extrabold max-w-3xl">
                     Unlimited movies, TV shows and more
@@ -35,6 +49,12 @@ const LandingPage = (): ReactElement => {
                     </button>
                 </div>
             </div>
+            : null
+            }
+
+            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                <SignInForm onSubmit={(values) => console.log(values)} />
+            </Modal>
         </div>
     );
 };
