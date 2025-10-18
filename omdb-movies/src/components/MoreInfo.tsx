@@ -6,28 +6,27 @@ interface MoreInfoProps {
 
 const MoreInfo: React.FC<MoreInfoProps> = ({info}) => {
 
-    console.log("info is",info)
-    const {Title } = info || {};
+    const {Title, Plot, Actors, Awards, BoxOffice, Country, Director, Genre, Language, Production, Rated, Released, Response, Runtime, Writer, Year } = info;
 
     return (
-        <>
-            <h2 className="text-white">{Title}</h2>
-            {/*<p>{Plot}</p>*/}
-            {/*<p>{Actors}</p>*/}
-            {/*<p>{Awards}</p>*/}
-            {/*<p>{BoxOffice}</p>*/}
-            {/*<p>{Country}</p>*/}
-            {/*<p>{Director}</p>*/}
-            {/*<p>{Genre}</p>*/}
-            {/*<p>{Language}</p>*/}
-            {/*<p>{Production}</p>*/}
-            {/*<p>{Rated}</p>*/}
-            {/*<p>{Released}</p>*/}
-            {/*<p>{Response}</p>*/}
-            {/*<p>{Runtime}</p>*/}
-            {/*<p>{Writer}</p>*/}
-            {/*<p>{Year}</p>*/}
-        </>
+        <div className="text-white">
+            <h2>{Title}</h2>
+            <p>{Plot}</p>
+            <p>{Actors}</p>
+            <p>{Awards}</p>
+            <p>{BoxOffice}</p>
+            <p>{Country}</p>
+            <p>{Director}</p>
+            <p>{Genre}</p>
+            <p>{Language}</p>
+            <p>{Production}</p>
+            <p>{Rated}</p>
+            <p>{Released}</p>
+            <p>{Response}</p>
+            <p>{Runtime}</p>
+            <p>{Writer}</p>
+            <p>{Year}</p>
+        </div>
     )
 }
 
