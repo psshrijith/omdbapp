@@ -14,7 +14,7 @@ type MovieDetailsProps = {
 }
 const MovieDetails: React.FC<MovieDetailsProps> = ({movie}) => {
     const {Title, Year} = movie;
-    const Poster = movie?.Poster === "N/A" ? no_image : movie.Poster;
+    const Poster = movie?.Poster === "N/A" ? no_image : movie?.Poster;
 
     return (
         <div className="bg-gray-800 text-white rounded-2xl shadow-lg

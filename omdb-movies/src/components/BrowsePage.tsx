@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {fetchMovieDetails} from "../utils/api";
+import {fetchMovieResults} from "../utils/api";
 import MovieDetails from "./MovieDetails";
 import {Movie} from './MovieDetails';
 
@@ -17,7 +17,7 @@ const BrowsePage: React.FC = () => {
         if (!searchQuery.trim()) return;
         try {
             setIsLoading(true);
-            const data = await fetchMovieDetails(searchQuery);
+            const data = await fetchMovieResults(searchQuery);
             if (data === "False") {
                 setError("Movie not found");
                 setMovie([]);
