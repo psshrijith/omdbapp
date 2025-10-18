@@ -23,7 +23,7 @@ export async function getMovieResults(searchQuery: string) {
             throw new Error("Network response are not ok");
         }
         const data = await response.json();
-        return data?.Search || data?.Response;
+        return data;
     }
     catch (error) {
         console.error("Error fetching movie details:", error);
