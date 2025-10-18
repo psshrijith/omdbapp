@@ -7,7 +7,7 @@ export async function fetchMovieDetails(searchQuery: string){
             throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        return data.Search || [];
+        return data.Search || data.Response;
     }
      catch (error) {
     console.error("Error fetching movie details:", error);

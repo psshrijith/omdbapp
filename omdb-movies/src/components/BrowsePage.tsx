@@ -18,7 +18,7 @@ const BrowsePage: React.FC = () => {
         try {
             setIsLoading(true);
             const data = await fetchMovieDetails(searchQuery);
-            if (data.Response === "False") {
+            if (data === "False") {
                 setError("Movie not found");
                 setMovie([]);
             } else {
@@ -72,7 +72,6 @@ const BrowsePage: React.FC = () => {
                 {loading && <div className="text-2xl">Loading movie details...</div>}
 
                 {error && <div className="text-red-400 text-xl mt-6">{error}</div>}
-
                 {!loading && movie.length > 0 && (
                     <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
                         {movie.map((movieItem) => (
