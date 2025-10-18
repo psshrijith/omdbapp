@@ -12,10 +12,10 @@ type MovieDetailsProps = {
     movie: Movie;
 }
 const MovieDetails: React.FC<MovieDetailsProps> = ({movie}) => {
-    const {Title, Year, imdbID, Type, Poster} = movie;
+    const {Title, Year, Poster} = movie;
 
     return (
-        <div className="bg-gray-800 text-white rounded-2xl shadow-lg overflow-hidden
+        <div className="bg-gray-800 text-white rounded-2xl shadow-lg
                  flex flex-col w-72 hover:scale-105 transition-transform cursor-pointer">
             <img src={Poster} className="h-96 w-full"/>
 

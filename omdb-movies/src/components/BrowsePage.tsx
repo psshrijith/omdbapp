@@ -37,7 +37,7 @@ const BrowsePage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center gap-6 fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div className="fixed min-h-screen flex flex-col justify-center items-center gap-6 inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-auto">
             <p
                 className="font-bold text-7xl text-center text-white">
                 Search for any movie<br/>
@@ -49,9 +49,16 @@ const BrowsePage: React.FC = () => {
                     type="search"
                     placeholder="Search for movies, TV shows..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={(e) => {
+                        const value = e.target.value;
+                        setSearchQuery(value);
+                        if(value===''){
+                            setMovie([]);
+                            setError('');
+                            setIsModalOpen(false);
+                        }
+                    }}
                     />
-
                     <button
                         className="cursor-pointer rounded-xl"
                         onClick={handleSearch}
@@ -60,7 +67,7 @@ const BrowsePage: React.FC = () => {
                     </button>
             </div>
 
-            {loading ? (<div className="text-center py-8">Loading Movie details...</div>):
+            {loading ? (<div className="text-center py-8 text-white text-3xl">Loading Movie details...</div>):
                 (isModalOpen &&
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-8">
                     {movie.map((movieItem) => (
