@@ -17,7 +17,8 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({movie}) => {
     return (
         <div className="bg-gray-800 text-white rounded-2xl shadow-lg
                  flex flex-col w-72 hover:scale-105 transition-transform cursor-pointer">
-            <img src={Poster} className="h-96 w-full"/>
+
+            <img src={Poster} className="h-auto w-full"/>
 
           <div className="p-4 gap-2">
                 <h2 className="text-xl font-bold">{Title}</h2>
