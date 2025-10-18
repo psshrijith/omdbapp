@@ -16,6 +16,7 @@ function App() {
   return (
       <Router>
           <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<LandingPage />} />
               <Route path="/browse" element={isAuthenticated ? <BrowsePage /> : <Navigate to="/home" replace/>} />
           </Routes>
