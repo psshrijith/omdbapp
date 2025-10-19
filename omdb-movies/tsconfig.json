@@ -9,7 +9,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "lib": ["ESNext", "DOM"],
-    "typeRoots": ["./node_modules/@types", "./src"]
+    "typeRoots": ["./node_modules/@types", "./src"],
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
   "exclude": ["node_modules"]
