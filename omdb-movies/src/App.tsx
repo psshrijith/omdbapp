@@ -11,7 +11,18 @@ function App() {
     useEffect(() => {
         const loggedIn=localStorage.getItem("isLoggedIn") === 'true';
         setIsAuthenticated(loggedIn);
-    }, [])
+
+        const handleStorageChange = () => {
+            const loggedIn = localStorage.getItem("isLoggedIn") === 'true';
+            setIsAuthenticated(loggedIn);
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
 
   return (
       <Router>
