@@ -5,15 +5,28 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [
-        react(),
-        tailwindcss()
-    ],
-    resolve: {
-        alias: {
-            '@assets': path.resolve(__dirname, './src/assets'),
-            '@components': path.resolve(__dirname, './src/components'),
-            '@utils': path.resolve(__dirname, './src/utils')
-        }
-    }
+  plugins: [
+    react(),
+    tailwindcss()
+  ],
+  resolve: {
+    alias: [
+      {
+        find: '@',
+        replacement: path.resolve(__dirname, 'src')
+      },
+      {
+        find: '@assets',
+        replacement: path.resolve(__dirname, 'src/assets')
+      },
+      {
+        find: '@components',
+        replacement: path.resolve(__dirname, 'src/components')
+      },
+      {
+        find: '@utils',
+        replacement: path.resolve(__dirname, 'src/utils')
+      }
+    ]
+  }
 });

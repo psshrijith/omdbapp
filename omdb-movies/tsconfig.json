@@ -9,17 +9,24 @@
     "isolatedModules": true,
     "noEmit": true,
     "lib": ["ESNext", "DOM"],
-    "typeRoots": ["./node_modules/@types", "./src"],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "skipLibCheck": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"]
     },
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["vite/client"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts", "vite.config.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "vite.config.ts"
+  ],
   "exclude": ["node_modules"]
 }
