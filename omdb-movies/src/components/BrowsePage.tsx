@@ -49,6 +49,12 @@ const BrowsePage: React.FC = () => {
                         type="search"
                         placeholder="Search for movies, TV shows..."
                         value={searchQuery}
+                        onKeyDown={(e) => {
+                            if(e.key === "Enter") {
+                                e.preventDefault();
+                                handleSearch()
+                            }
+                        }}
                         onChange={(e) => {
                             const value = e.target.value;
                             setSearchQuery(value);
