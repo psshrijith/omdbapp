@@ -51,12 +51,12 @@ const MoreInfo: React.FC<MoreInfoProps> = ({ info }) => {
     ];
 
     return (
-        <div className="text-white rounded-2xl shadow-lg p-6 overflow-y-auto flex flex-col md:flex-row gap-6 inset-0">
+        <div className="text-white rounded-2xl shadow-lg p-1 overflow-y-auto flex flex-col md:flex-row gap-6 inset-0">
                 {Poster && (
                     <img
                         src={Poster !== "N/A" ? Poster : "/fallback.jpg"}
                         alt={Title}
-                        className="w-full md:w-1/3 rounded-lg object-cover max-h-[500px]"
+                        className="w-full max-w-[400px] rounded-lg object-cover max-h-[500px]"
                     />
                 )}
 
