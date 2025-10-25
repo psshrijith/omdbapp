@@ -39,7 +39,7 @@ const BrowsePage: React.FC = () => {
         <div className="fixed min-h-screen flex flex-col justify-center items-center gap-6 inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-auto">
             <div className="sticky flex flex-col items-center gap-6 top-0 bg-gray-900/90 backdrop-blur-md z-10 py-6 w-full">
                 <p
-                    className="font-bold text-7xl text-center text-white">
+                    className="font-bold text-2xl md:text-7xl text-center text-white">
                     Search for any movie<br/>
                     or TV show
                 </p>
