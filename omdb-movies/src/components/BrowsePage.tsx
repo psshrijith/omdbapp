@@ -45,7 +45,7 @@ const BrowsePage: React.FC = () => {
                 </p>
                 <div className="flex flex-row gap-4">
                     <input
-                        className="w-96 h-12 border-blue-400 border-2 rounded-xl p-4 text-white bg-transparent"
+                        className="w-full sm:w-96 h-12 border-blue-400 border-2 rounded-xl p-4 text-white bg-transparent"
                         type="search"
                         placeholder="Search for movies, TV shows..."
                         value={searchQuery}

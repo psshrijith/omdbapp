@@ -17,7 +17,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ onLoginSuccess }) => {
         if(validateUser(email, password)) {
             setError("");
             localStorage.setItem("isLoggedIn", "true");
-            onLoginSuccess(); // Call the onLoginSuccess callback
+            onLoginSuccess();
             navigate("/browse");
         }
         else{
