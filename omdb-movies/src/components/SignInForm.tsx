@@ -7,7 +7,6 @@ interface SignInFormProps {
 }
 
 const SignInForm: React.FC<SignInFormProps> = ({ onLoginSuccess }) => {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -18,7 +17,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ onLoginSuccess }) => {
         if(validateUser(email, password)) {
             setError("");
             localStorage.setItem("isLoggedIn", "true");
-            onLoginSuccess();
+            onLoginSuccess(); // Call the onLoginSuccess callback
             navigate("/browse");
         }
         else{
@@ -35,7 +34,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ onLoginSuccess }) => {
                 )}
 
             <input
-                className="border-white border-2 text-white h-12 rounded-lg p-1"
+                className="border-white border-2 text-white h-12 rounded-lg p-1 bg-transparent"
                 type="text"
                 placeholder="Email address"
                 value={email}
@@ -44,7 +43,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ onLoginSuccess }) => {
                 />
 
             <input
-                className="border-white border-2 text-white h-12 rounded-lg p-1"
+                className="border-white border-2 text-white h-12 rounded-lg p-1 bg-transparent"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -53,7 +52,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ onLoginSuccess }) => {
                 />
 
             <button
-                className="bg-red-600 h-12 rounded-lg"
+                className="bg-red-600 h-12 rounded-lg text-white font-semibold hover:bg-red-700"
                 type="submit"
                 >
                 Sign In
