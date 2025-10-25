@@ -3,11 +3,19 @@ import netflix_logo from "../assets/netflix_logo.jpg";
 import bg_image from "../assets/bg_image.jpg";
 import Modal from "./Modal";
 import SignInForm from "./SignInForm";
+import {useNavigate} from 'react-router-dom';
 
 type LandingPageProps = {
 
 }
 const LandingPage : React.FC<LandingPageProps> =  () => {
+
+    const navigate = useNavigate();
+
+    const handleLoginSuccess = () => {
+        setIsOpen(false);
+        navigate("/browse");
+    };
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -53,7 +61,7 @@ const LandingPage : React.FC<LandingPageProps> =  () => {
             }
 
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <SignInForm />
+                <SignInForm onLoginSuccess={handleLoginSuccess} />
             </Modal>
         </div>
     );

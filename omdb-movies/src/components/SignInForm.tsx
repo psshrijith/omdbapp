@@ -2,18 +2,23 @@ import React, {useState} from "react";
 import {validateUser} from "../utils/validateUser";
 import {useNavigate} from 'react-router-dom';
 
-const SignInForm: React.FC = () => {
+interface SignInFormProps {
+    onLoginSuccess: () => void;
+}
+
+const SignInForm: React.FC<SignInFormProps> = ({ onLoginSuccess }) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if(validateUser(email, password)) {
             setError("");
             localStorage.setItem("isLoggedIn", "true");
+            onLoginSuccess();
             navigate("/browse");
         }
         else{
